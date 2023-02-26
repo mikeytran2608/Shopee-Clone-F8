@@ -150,6 +150,7 @@
     /* chỉnh tâm để hiện animation */
     animation: headerNotifyGrowth ease-in .2s;
     will-change: opacity, transform;
+    z-index: 1;
 }
 
 .header__notify::before {
@@ -187,7 +188,6 @@
 .header__notify-header {
     height: 40px;
     background-color: var(--white-color);
-
 }
 
 .header__notify-header h3 {
@@ -438,10 +438,60 @@
     text-align: center;
 }
 
+.header__cart-wrap {
+    position: relative;
+    display: inline-block;
+    padding: 0 8px;
+    cursor: pointer;
+}
+
+.header__cart-wrap:hover .header__cart-list {
+    display: block;
+}
+
+
 .header__cart-icon {
     font-size: 2.4rem;
     color: var(--white-color);
     margin-top: 4px;
+}
+
+.header__cart-list {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: -4px;
+    background-color: var(--white-color);
+    width: 400px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+}
+
+.header__cart-list::after {
+    content: "";
+    position: absolute;
+    right: 4px;
+    top: -25px;
+    border-width: 16px 20px;
+    border-style: solid;
+    border-color: transparent transparent var(--white-color) transparent;
+}
+
+.header__cart-no-cart-img {
+    width: 50%;
+}
+
+.header__cart-list-no-cart-msg {
+    display: block;
+    font-size: 1.4rem;
+    margin-top: 14px;
+    color: var(--text-color);
+}
+
+.header__cart-list--no-cart {
+    padding: 24px 0;
+
 }
 
 .header__search-input-wrap {
@@ -544,4 +594,6 @@
     font-size: 1.4rem;
     line-height: 38px;
     color: var(--text-color);
+    display: block;
 }
+
